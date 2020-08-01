@@ -1,0 +1,5 @@
+model\Dato.class
+dao\ApiD.class
+controller\ApplicationRest.class
+controller\ApiC.class
+controller\Service.class
