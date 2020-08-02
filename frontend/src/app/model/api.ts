@@ -20,11 +20,20 @@ export class Api {
 
 }
 
-export class Resultado {
+export interface Deserializable {
+    deserialize(input: any): this;
+  }
 
-    category: number;
+export class Resultado implements Deserializable {
+
     confidence: number;
+    category: number;
     credits: number;
     probability: number;
+
+    deserialize(input: any) {
+        Object.assign(this, input);
+        return this;
+      }
 
 }

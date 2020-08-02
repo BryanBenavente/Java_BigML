@@ -12,6 +12,14 @@ export class ApiComponent implements OnInit {
 
   api = new Api();
   result: Resultado;
+  estado = false;
+
+  // Resultado
+  category: number;
+  confidence: number;
+  probability: number;
+  credits: number;
+  valor: string;
 
   constructor(private servicio: ConsumoService) { }
 
@@ -23,15 +31,26 @@ export class ApiComponent implements OnInit {
   }
 
   enviar(body: Api, f: NgForm) {
+    this.estado = false;
     this.servicio.predecir(body).subscribe(data => {
-      data = this.result;
       console.log(data);
+      this.genera(new Resultado().deserialize(data));
     });
     f.reset();
   }
 
-  generar(){
-    console.log(this.result);
+  genera(data: Resultado) {
+    this.estado = true;
+    this.result = data;
+    this.category = this.result.category;
+    this.confidence = this.result.confidence;
+    this.probability = this.result.probability;
+    this.credits = this.result.credits;
+    if (this.category === 1) {
+      this.valor = 'Lo sentimos existe nuestro algoritmo nos dice que usted tiene los días contados :(';
+    } else {
+      this.valor = 'En hora buena, aun no hes momento de despedirnos :)';
+    }
   }
 
 }
