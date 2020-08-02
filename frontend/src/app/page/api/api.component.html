@@ -1,0 +1,86 @@
+<div class="container">
+    <h3 style="color: #fe4c50;"> Datos del Paciente </h3>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Edad</label>
+              <input type="number" [(ngModel)]="api.age" name="author" class="form-control" placeholder="Ingrese la edad">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Tiene anemia?</label>
+              <input type="text" [(ngModel)]="api.anaemia" name="name" class="form-control">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">CPK</label>
+              <input type="number" [(ngModel)]="api.creatinine_phosphokinase" name="author" class="form-control" placeholder="Ingrese la edad">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">          
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Tiene diabetes?</label>
+              <input type="number" [(ngModel)]="api.diabetes" name="author" class="form-control" placeholder="Ingrese la edad">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Fracción de eyección</label>
+              <input type="number" [(ngModel)]="api.ejection_fraction" name="author" class="form-control" placeholder="Ingrese la edad">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Hipertensión</label>
+              <input type="text" [(ngModel)]="api.high_blood_pressure" name="name" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Cant. de plaquetas</label>
+              <input type="number" [(ngModel)]="api.platelets" name="author" class="form-control" placeholder="Ingrese la edad">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Cant. de suero de creatinina</label>
+              <input type="text" [(ngModel)]="api.serum_creatinine" name="name" class="form-control">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Cant. de Sodio sérico</label>
+              <input type="text" [(ngModel)]="api.serum_sodium" name="name" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Sexo</label>
+              <input type="number" [(ngModel)]="api.sex" name="author" class="form-control" placeholder="Ingrese la edad">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Fumas?</label>
+              <input type="text" [(ngModel)]="api.smoking" name="name" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <button  [disabled]="!contactForm.form.valid">Enviar</button>
+      </form>
+    </div>
+</div>
