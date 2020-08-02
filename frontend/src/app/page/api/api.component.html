@@ -1,24 +1,29 @@
 <div class="container">
-    <h3 style="color: #fe4c50;"> Datos del Paciente </h3>
+    <h3 style="color: #fe4c50; font-weight: bold"> Datos del Paciente </h3>
     <div class="card-body">
       <form (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
         <div class="row">
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="name">Edad</label>
-              <input type="number" [(ngModel)]="api.age" name="author" class="form-control" placeholder="Ingrese la edad">
+              <label for="age">Edad</label>
+              <input [(ngModel)]="api.age" name="age" class="form-control" placeholder="Ingrese la edad"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==2) return false;">
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="name">Tiene anemia?</label>
-              <input type="text" [(ngModel)]="api.anaemia" name="name" class="form-control">
+              <label for="anaemia">Tiene anemia?</label>
+              <select [(ngModel)]="api.anaemia" class="form-control" name="anaemia">
+                <option value="1"> Si </option>
+                <option value="0"> No </option>
+              </select>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="name">CPK</label>
-              <input type="number" [(ngModel)]="api.creatinine_phosphokinase" name="author" class="form-control" placeholder="Ingrese la edad">
+              <label for="creatinine_phosphokinase">CPK</label>
+              <input [(ngModel)]="api.creatinine_phosphokinase" name="creatinine_phosphokinase" class="form-control" placeholder="Ingrese la cantidad"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==5) return false;">
             </div>
           </div>
         </div>
@@ -26,20 +31,25 @@
         <div class="row">          
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="name">Tiene diabetes?</label>
-              <input type="number" [(ngModel)]="api.diabetes" name="author" class="form-control" placeholder="Ingrese la edad">
+              <label for="diabetes">Tiene diabetes?</label>
+              <select [(ngModel)]="api.diabetes" class="form-control" name="diabetes">
+                <option value="1"> Si </option>
+                <option value="0"> No </option>
+              </select>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="name">Fracción de eyección</label>
-              <input type="number" [(ngModel)]="api.ejection_fraction" name="author" class="form-control" placeholder="Ingrese la edad">
+              <label for="ejection_fraction">Fracción de eyección</label>
+              <input type="number" [(ngModel)]="api.ejection_fraction" name="ejection_fraction" class="form-control" placeholder="Ingrese la cantidad"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==2) return false;">
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="name">Hipertensión</label>
-              <input type="text" [(ngModel)]="api.high_blood_pressure" name="name" class="form-control">
+              <label for="high_blood_pressure">Hipertensión</label>
+              <input [(ngModel)]="api.high_blood_pressure" name="high_blood_pressure" class="form-control" placeholder="Ingrese la cantidad"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==3) return false;">
             </div>
           </div>
         </div>
@@ -47,20 +57,23 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="name">Cant. de plaquetas</label>
-              <input type="number" [(ngModel)]="api.platelets" name="author" class="form-control" placeholder="Ingrese la edad">
+              <label for="platelets">Cant. de plaquetas</label>
+              <input [(ngModel)]="api.platelets" name="platelets" class="form-control" placeholder="Ingrese la cantidad"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==6) return false;">
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="name">Cant. de suero de creatinina</label>
-              <input type="text" [(ngModel)]="api.serum_creatinine" name="name" class="form-control">
+              <label for="serum_creatinine">Cant. de suero de creatinina</label>
+              <input [(ngModel)]="api.serum_creatinine" name="serum_creatinine" class="form-control" placeholder="Ingrese la cantidad"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==5) return false;">
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="name">Cant. de Sodio sérico</label>
-              <input type="text" [(ngModel)]="api.serum_sodium" name="name" class="form-control">
+              <label for="serum_sodium">Cant. de Sodio sérico</label>
+              <input [(ngModel)]="api.serum_sodium" name="serum_sodium" class="form-control" placeholder="Ingrese la cantidad"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==3) return false;">
             </div>
           </div>
         </div>
@@ -68,19 +81,25 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="name">Sexo</label>
-              <input type="number" [(ngModel)]="api.sex" name="author" class="form-control" placeholder="Ingrese la edad">
+              <label for="sex">Sexo</label>
+              <select [(ngModel)]="api.sex" class="form-control" name="sex" >
+                <option value="1"> Hombre </option>
+                <option value="0"> Mujer </option>
+              </select>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="name">Fumas?</label>
-              <input type="text" [(ngModel)]="api.smoking" name="name" class="form-control">
+              <label for="smoking">Fumas?</label>
+              <select [(ngModel)]="api.smoking" class="form-control" name="smoking">
+                <option value="1"> Si </option>
+                <option value="0"> No </option>
+              </select>
             </div>
           </div>
         </div>
-
-        <button  [disabled]="!contactForm.form.valid">Enviar</button>
-      </form>
+        <button>Enviar</button>
+      </form>    
     </div>
+    <button (click)="generar()">ver</button>    
 </div>

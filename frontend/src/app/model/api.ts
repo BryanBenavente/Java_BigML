@@ -19,3 +19,12 @@ export class Api {
     smoking: number;
 
 }
+
+export class Resultado {
+
+    category: number;
+    confidence: number;
+    credits: number;
+    probability: number;
+
+}

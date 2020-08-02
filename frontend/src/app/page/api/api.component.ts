@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Api } from '../../model/api';
+import { Api, Resultado } from '../../model/api';
 import { ConsumoService } from '../../service/consumo.service';
 import { NgForm } from '@angular/forms';
 
@@ -11,6 +11,8 @@ import { NgForm } from '@angular/forms';
 export class ApiComponent implements OnInit {
 
   api = new Api();
+  result: Resultado;
+
   constructor(private servicio: ConsumoService) { }
 
   ngOnInit(): void {
@@ -21,8 +23,15 @@ export class ApiComponent implements OnInit {
   }
 
   enviar(body: Api, f: NgForm) {
-    this.servicio.predecir(body);
+    this.servicio.predecir(body).subscribe(data => {
+      data = this.result;
+      console.log(data);
+    });
     f.reset();
+  }
+
+  generar(){
+    console.log(this.result);
   }
 
 }
